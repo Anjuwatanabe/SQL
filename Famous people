@@ -1,0 +1,51 @@
+--Create table about the people and what they do
+CREATE TABLE famous_people
+    (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    fullname TEXT,
+    spotify INTEGER,
+    famous_song TEXT);
+    
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Justin Bieber", 74347766, "Baby");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Taylor Swift", 80648056, "Lover");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Katy Perry", 51935676, "Fireworks");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Drake", 68010053, "Elevate");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Beyonce", 51516343, "Halo");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Bad Bunny", 64921183, "Efecto");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Eminem", 67316465, "mockingbird");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Stevie Wonder", 17537340, "As");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Adele", 50527415, "Hello");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Miley Cyrus", 50527415, "Flowers");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Kelly Clarkson", 15203857, "Breakaway");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Hilary Duff", 1754391, "Wake Up");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Hikaru Utada", 4006563, "First Love");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("BTS", 37248014, "Butter");
+INSERT INTO famous_people (fullname, spotify, famous_song) VALUES ("Vaundy", 5026807, "Odoriko");
+
+CREATE TABLE home
+    (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    person_id INTEGER,
+    name TEXT);
+INSERT INTO home (person_id, name) VALUES (1, "Canada");
+INSERT INTO home (person_id, name) VALUES (2, "USA");
+INSERT INTO home (person_id, name) VALUES (3, "USA");
+INSERT INTO home (person_id, name) VALUES (4, "CANDA");
+INSERT INTO home (person_id, name) VALUES (5, "USA");
+INSERT INTO home (person_id, name) VALUES (6, "Puerto Rico");
+INSERT INTO home (person_id, name) VALUES (7, "USA");
+INSERT INTO home (person_id, name) VALUES (8, "USA");
+INSERT INTO home (person_id, name) VALUES (9, "UK");
+INSERT INTO home (person_id, name) VALUES (10, "USA");
+INSERT INTO home (person_id, name) VALUES (11, "USA");
+INSERT INTO home (person_id, name) VALUES (12, "USA");
+INSERT INTO home (person_id, name) VALUES (13, "Japan");
+INSERT INTO home (person_id, name) VALUES (14, "Korea");
+INSERT INTO home (person_id, name) VALUES (15, "Japan");
+
+--2 ways to get Name of celebrties and where they are from
+SELECT fullname, b.name as "furusato" FROM famous_people a, home b
+where a.id=b.id;
+
+SELECT famous_people.fullname, home.name 
+    FROM famous_people
+    LEFT OUTER JOIN home
+    ON famous_people.id=home.person_id;
